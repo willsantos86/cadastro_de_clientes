@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load bootstrap5 %}
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -32,47 +33,53 @@
       <main>
         <h2 class="my-3" style="text-align: center;">Cadastro</h2>
         <p style="margin-left: 60px;">Realize o cadastro do cliente neste formulário abaixo, em caso de dúvidas, 
-                                      falar com {{ responsavel|upper }} através do telefone {{ telefone }}.</p>
+                                      falar com {{ responsavel|upper }} através do telefone {{ telefone }}.
+        </p>
+        {% if sucesso %}
+        <p class="alert alert-success">Cadastro realizado com sucesso!</p>
+        {% endif %}
         <hr>
         <form action="" method="post">
-          <div class="row">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <!-- <div class="row">
             <div class="col-md-5 m-auto my-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                <input type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Fulano de Tal">
+                <input name="nome" type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Fulano de Tal">
               </div>
             </div>
             <div class="col-md-5 m-auto">
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
               </div>
             </div>
             <div class="col-md-3 m-auto">
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="(xx) xxxxx-xxxx">
+                <input name="telefone" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="(xx) xxxxx-xxxx">
               </div>
             </div>
             <div class="col-md-3 m-auto">
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">CPF</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="xxx.xxx.xxx.xx">
+                <input name="cpf" type="text" class="form-control" id="exampleFormControlInput1" placeholder="xxx.xxx.xxx.xx">
               </div>
             </div>
             <div class="col-md-3 m-auto">
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">Data de Nascimento</label>
-                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="DD/MM/YYYY">
+                <input name="data_nascimento" type="date" class="form-control" id="exampleFormControlInput1" placeholder="DD/MM/YYYY">
               </div>
             </div>
             <div class="col-md-11 m-auto">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1" class="form-label">Observações</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Deixe sua mensagem aqui..."></textarea>
+                <textarea name="observacoes" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Deixe sua mensagem aqui..."></textarea>
               </div>
             </div>
-          </div>
+          </div> -->
           <hr>
           <div class="d-grid gap-2 col-2 m-auto">
             <button class="btn btn-primary btn-lg" type="submit">Adicionar</button>
