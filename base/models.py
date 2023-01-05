@@ -6,13 +6,15 @@ class Dados(models.Model):
     telefone = models.CharField(max_length=14, verbose_name="Telefone")
     cpf = models.CharField(max_length=11, verbose_name='CPF')
     data_nascimento = models.DateField(verbose_name="Data Nascimento")
-    #observacoes = models.TextField(verbose_name="Observações")
-    #data = models.DateTimeField(auto_now=True, verbose_name="Data de Criação")
-
-    class Meta:
-        verbose_name_plural = "Dados"
-
+    data = models.DateTimeField(verbose_name="Data de Criação", auto_now=True)
+    observacoes = models.TextField(verbose_name="Observações")
+    aprovado = models.BooleanField(verbose_name="Aprovado", default=False, blank=True)
+    
     def __str__(self):
-        return f'Dados {self.id}'
+        return f'Nome: {self.nome} - Tel: {self.telefone} - Email: {self.email}'
+    class Meta:
+        verbose_name = "Cadastro de Cliente"
+        verbose_name_plural = "Cadastros de Clientes"
+        ordering = ['nome']
 
 
