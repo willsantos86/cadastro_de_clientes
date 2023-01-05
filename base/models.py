@@ -6,6 +6,7 @@ class Dados(models.Model):
     telefone = models.CharField(max_length=14, verbose_name="Telefone")
     cpf = models.CharField(max_length=11, verbose_name='CPF')
     data_nascimento = models.DateField(verbose_name="Data Nascimento")
+    observacoes = models.TextField(verbose_name="Observações")
 
     class Meta:
         verbose_name_plural = "Dados"
