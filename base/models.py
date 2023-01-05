@@ -2,11 +2,12 @@ from django.db import models
 
 class Dados(models.Model):
     nome = models.CharField(max_length=50, verbose_name="Nome")
-    email = models.EmailField(verbose_name="Email")
+    email = models.EmailField(max_length=75, verbose_name="Email")
     telefone = models.CharField(max_length=14, verbose_name="Telefone")
     cpf = models.CharField(max_length=11, verbose_name='CPF')
     data_nascimento = models.DateField(verbose_name="Data Nascimento")
-    observacoes = models.TextField(verbose_name="Observações")
+    #observacoes = models.TextField(verbose_name="Observações")
+    #data = models.DateTimeField(auto_now=True, verbose_name="Data de Criação")
 
     class Meta:
         verbose_name_plural = "Dados"
