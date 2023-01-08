@@ -20,6 +20,7 @@ from base.views import *
 app_name = 'base'
 
 urlpatterns = [
-    path('', cadastrar, name='cadastrar'),
+    path('', index, name='index'),
+    path('cadastrar/', cadastrar, name='cadastrar'),
     path('admin/', admin.site.urls),
 ]

@@ -3,6 +3,11 @@ from base.forms import CadastroForm
 from base.models import Dados
 
 # Create your views here.
+
+def index(request):
+    return render(request, 'index.html')
+
+    
 def cadastrar(request):
     sucesso = False
     if request.method == 'GET':
