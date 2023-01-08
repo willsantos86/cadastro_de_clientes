@@ -9,10 +9,12 @@
   </head>
   <body style="background-color: black;">
     <div class="card text-bg-dark">
+      
       <img src="{% static 'img/foto.png' %}" class="card-img" alt="...">
       <div class="card-img-overlay">
-        <h2 class="card-title py-4">Cadastro de Clientes</h2>
-        <p class="card-text">Entre no formulário e realize o cadastro do cliente</p>
+        <h1 class="card-title py-4">Cadastro de Clientes</h1>
+        <h2 class="card-title py-4"></h2>
+        <p class="card-text" style="color: yellow;">Entre no formulário e realize o cadastro do cliente!</p>
         <a class="btn btn-primary" aria-current="page" href="{% url 'cadastrar' %}">Entrar no Formulário</a>
       </div>
     </div>
